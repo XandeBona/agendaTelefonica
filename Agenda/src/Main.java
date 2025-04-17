@@ -35,6 +35,26 @@ public class Main {
 
             }
 
+            //Para buscar um telefone pelo nome do contato
+            else if (escolha == 2) {
+                System.out.print("Informe o nome do contato que você deseja buscar o número: ");
+                sc.nextLine();
+                String nome = sc.nextLine();
+
+                boolean encontrado = false;
+
+                for (int i = 0; i < agenda.size(); i++) {
+                    ArrayList<Object> contato = agenda.get(i);
+                    if (contato.get(0).equals(nome)) {
+                        System.out.println("Telefone do " + contato.get(0) + ": " + contato.get(1));
+                        encontrado = true;
+                    }
+                }
+                if (!encontrado) {
+                    System.out.println("Contato não encontrado!!");
+                }
+            }
+
             //Para listar todos os contatos e respectivos numeros
             else if (escolha == 3) {
                 for (Object l : agenda) {
@@ -48,12 +68,18 @@ public class Main {
                 sc.nextLine();
                 String nomeRemover = sc.nextLine();
 
+                boolean encontrado = false;
+
                 for (int i = 0; i < agenda.size(); i++) {
                     if (agenda.get(i).get(0).equals(nomeRemover)) {
                         agenda.remove(i);
                         System.out.println("Contato removido com sucesso!");
+                        encontrado = true;
                         break;
                     }
+                }
+                if(!encontrado) {
+                    System.out.println("Contato não encontrado!");
                 }
             }
 
