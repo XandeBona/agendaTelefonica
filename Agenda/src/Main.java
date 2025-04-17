@@ -42,6 +42,21 @@ public class Main {
                 }
             }
 
+            //Para remover um contato e seu respectivo numero
+            else if (escolha == 4) {
+                System.out.print("Informe o nome do contato para ser removido: ");
+                sc.nextLine();
+                String nomeRemover = sc.nextLine();
+
+                for (int i = 0; i < agenda.size(); i++) {
+                    if (agenda.get(i).get(0).equals(nomeRemover)) {
+                        agenda.remove(i);
+                        System.out.println("Contato removido com sucesso!");
+                        break;
+                    }
+                }
+            }
+
             //Para obrigar o usuário a escolher uma opção válida
             else {
                 System.out.println("Faça uma escolha válida!");
