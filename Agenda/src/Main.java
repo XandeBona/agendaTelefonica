@@ -57,8 +57,12 @@ public class Main {
 
             //Para listar todos os contatos e respectivos numeros
             else if (escolha == 3) {
-                for (Object l : agenda) {
-                    System.out.print(l + "\n");
+                if (agenda.isEmpty()) {
+                    System.out.println("Você não possui contatos salvos!");
+                } else {
+                    for (Object l : agenda) {
+                        System.out.print(l + "\n");
+                    }
                 }
             }
 
@@ -78,7 +82,7 @@ public class Main {
                         break;
                     }
                 }
-                if(!encontrado) {
+                if (!encontrado) {
                     System.out.println("Contato não encontrado!");
                 }
             }
