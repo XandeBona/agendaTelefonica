@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Object> listaTelefonica = new ArrayList<>();
+        ArrayList<ArrayList<Object>> agenda = new ArrayList<>();
 
         System.out.println("=== AGENDA TELEFONICA ===");
         System.out.println("1 - Adicionar um novo contato");
@@ -20,18 +20,24 @@ public class Main {
                 System.out.print("Informe o nome do contato: ");
                 sc.nextLine();
                 String nome = sc.nextLine();
-                listaTelefonica.add(nome);
+
                 ArrayList<String> listaTelefones = new ArrayList<>();
                 System.out.print("Informe o número de telefone: ");
                 String numero = sc.nextLine();
                 listaTelefones.add(numero);
-                listaTelefonica.add(listaTelefones);
+
+                ArrayList<Object> listaContatos = new ArrayList<>();
+                listaContatos.add(nome);
+                listaContatos.add(listaTelefones);
+
+                agenda.add(listaContatos);
+                System.out.println("Contato adicionado!");
 
             }
 
             //Para listar todos os contatos e respectivos numeros
             else if (escolha == 3) {
-                for (Object l : listaTelefonica) {
+                for (Object l : agenda) {
                     System.out.print(l + "\n");
                 }
             }
